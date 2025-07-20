@@ -6,7 +6,6 @@ title: Group Meowing
 
 ![[content/group-meowing.jpg]] hi :3
 
-### Ce?
+**Group meowing** este o comunitate de persoane trans feminine și nonbinare cu o ideologie politică de stânga.
 
-...
 
