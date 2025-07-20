@@ -1,0 +1,21 @@
+{{>site/template/header.html}}
+
+    <main>
+      <article>
+        <header>
+          <hgroup>
+            <div class="grid">
+              <div>
+                <h1>{{post.title}}</h1>
+              </div>
+              <div class="right">
+                <p>{{post.publish}}</p>
+              </div>
+          </hgroup>
+        </header>
+        {{{post.content}}}
+        <footer>{{post.footer}}</footer>
+      </article>
+    </main>
+
+{{>site/template/footer.html}}

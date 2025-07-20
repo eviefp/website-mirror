@@ -1,0 +1,13 @@
+.right {
+  text-align: right;
+}
+
+img {
+  width: 100%;
+  max-width: 550px !important;
+}
+
+.unlink {
+  text-decoration: none;
+  color: gray;
+}
