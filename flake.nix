@@ -49,7 +49,7 @@
           };
 
           devShells.default = pkgs.mkShell {
-            name = "eviero-shell";
+            name = "group-meowing-website-shell";
             buildInputs = [
               evie-blog-engine.packages.x86_64-linux.default
               pkgs.http-server
