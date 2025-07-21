@@ -2,7 +2,7 @@
   text-align: right;
 }
 
-img {
+article img {
   width: 100%;
   max-width: 350px !important;
 }
@@ -10,4 +10,8 @@ img {
 .unlink {
   text-decoration: none;
   color: gray;
+}
+
+nav .logo {
+  width: 16px !important;
 }
