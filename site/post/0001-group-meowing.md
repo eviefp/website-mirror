@@ -11,4 +11,3 @@ title: Group Meowing
 TODO:
 - who we are
 - what we do
-- ???
