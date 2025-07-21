@@ -30,7 +30,9 @@ De cele mai multe ori medicul endocrinolog va cere un set de analize inițiale, 
 
 **Recomandare**: citiți ghidul cu atenție, referințele din el, și mergeți la medicul endocrinolog cu "temele făcute" pentru a evita un tratament cu rezultate slabe, sau mai rău, unul periculos.
 
-## Planul Recomandat de Noi
+## Planul Recomandat
+
+Planul de mai jos a fost conceput de o persoană din comunitatea noastră (Dr. Emilia):
 
 1. analize inițiale cât mai complete (în măsura în care se poate, pentru a evita întrebări ulterioare de genul "dar este oare din cauza tratamentului?")
 2. faza 0-3 luni: bicalutamidă 50mg/zi, estradiol oral 2mg la 12 ore, analize la 2, 4, 8 și 12 săptămâni (TGP, TGO) pentru a evita micul risc de hepatotoxicitate al bicalutamidei (sunt câteva cazuri înregistrate de așa ceva, dar doar în primele 3 luni)
