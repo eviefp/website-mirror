@@ -10,11 +10,11 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1753035213,
-        "narHash": "sha256-7c4ZY+RBKpI6nA3OSV+16ZsQoGdBQvjFmiKwI2A/MFc=",
+        "lastModified": 1753085659,
+        "narHash": "sha256-K9IpCOXN8wZCSqzlm998x5ZASrc+HAwg5Gik5cOU1/M=",
         "owner": "eviefp",
         "repo": "website-engine",
-        "rev": "5b768bbd0596d1439378f52f7a247ef3039cc602",
+        "rev": "ff47994a6bb0b5b3b9facbb811c2a398fd73d5e9",
         "type": "github"
       },
       "original": {
