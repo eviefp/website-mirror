@@ -2,6 +2,7 @@
 id: tranzitia-sociala
 publish: 22-07-2025
 title: Tranzitia Sociala
+author: evie
 ---
 
 Tranziția socială nu are o definiție clară sau rigidă, și poate însemna diverse lucruri pentru fiecare.

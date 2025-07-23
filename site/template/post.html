@@ -11,9 +11,33 @@
               <div class="right">
                 <p>{{post.publish}}</p>
               </div>
+            </div>
+            {{#post.author}}
+            <div class="grid">
+              <div>
+                <p>articol scris de <i>{{.}}</i></p>
+              </div>
+            </div>
+              {{/post.author}}
           </hgroup>
         </header>
         {{{post.content}}}
+
+        {{#post.renderChangelog}}
+        <aside>
+
+          <p>
+          <h5>Istoric modificări</h5>
+          <ul>
+            {{#post.changelog}}
+              <li>{{.}}</li>
+            {{/post.changelog}}
+          </ul>
+          </p>
+
+        </aside>
+        {{/post.renderChangelog}}
+
         <footer>{{post.footer}}</footer>
       </article>
     </main>

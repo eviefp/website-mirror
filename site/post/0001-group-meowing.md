@@ -2,6 +2,7 @@
 id: group-meowing
 publish: 21-07-2025
 title: Group Meowing
+author: evie
 ---
 
 ![[content/group-meowing.jpg]] hi :3

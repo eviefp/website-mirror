@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     evie-blog-engine = {
-      url = "github:eviefp/website-engine?ref=blogv1";
+      url = "github:eviefp/website-engine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {

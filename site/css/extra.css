@@ -15,3 +15,12 @@ article img {
 nav .logo {
   width: 26px !important;
 }
+
+aside {
+  margin: 0.5em;
+  background-color: rgb(19, 23, 20);
+}
+
+aside li {
+  display: list-item;
+}
