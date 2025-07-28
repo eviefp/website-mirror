@@ -5,9 +5,7 @@ title: Group Meowing
 author: evie
 ---
 
-![[content/group-meowing.jpg]] hi :3
-
-**Group meowing** este o comunitate de persoane trans feminine și nonbinare cu o ideologie politică de stânga.
+![[content/group-meowing.jpg]] **Group meowing** este o comunitate de persoane trans feminine și nonbinare cu o ideologie politică de stânga.
 
 Suntem o comunitate privată de Discord, dedicată persoanelor transfemme și nonbinare din
 România. Ne dorim să oferim un spațiu sigur, unde membrii pot discuta liber și se pot
