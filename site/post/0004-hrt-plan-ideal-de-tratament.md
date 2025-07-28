@@ -14,7 +14,14 @@ Acestea fiind spuse, în România accesul la tratamentul hormonal este anevoios,
 și marea majoritate a medicilor endocrinologi sunt insuficient informați așa incat multe
 femei trans și persoane nonbinare aleg să obtină singure tratamentul hormonal.
 
+Pentru informații generale, puteți citi și articolul despre
+[tranziția medicală](/post/tranzitia-medicala).
+
 ## Accesul la tratamentul hormonal de feminizare pe calea oficială
+
+**Mențiune**: Se poate ajunge la psihiatru cu trimitere de la medicul de familie. Nu este
+nevoie să spuneți medicului de familie motivul, set poate da vina pe stres sau anxietate
+la lucru, facultate, etc.
 
 Majoritatea medicilor endocrinologi ne cer un diagnostic de disforie de gen, obținut de la
 un medic psihiatru.
@@ -96,6 +103,13 @@ Lenzetto, câte un puff aplicat genital (pe scrot)[^2] la 12 ore.
 
 Se trece la estradiol transdermic (Lenzetto) sau injectabil[^3] dacă pacienta dorește,
 fiind necesară o singură injecție pe săptămână, subcutanată, ușor de făcut și nedureroasă.
+
+Estradiolul injectabil nu se găsește în mod "oficial" la noi, dar se poate comanda de
+pe site-uri cum ar fi [astro vials](https://astrovials.com) sau
+[voix celeste](https://voixceleste.cc).
+
+**Atenție**: aceste variante vin cu un risc puțin mai mare decât cel al variantelor
+cumpărate de la farmacii.
 
 Dacă pacienta are nivele de estradiol suficiente și s-a obținut supresie gonadală se poate
 renunța la Bicalutamidă, dacă nu, se poate crește doza la 3-4 pufuri de Lenzetto pe zi,
