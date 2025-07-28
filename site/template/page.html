@@ -1,0 +1,45 @@
+{{>site/template/header.html}}
+
+    <main>
+      <article>
+        <header>
+          <hgroup>
+            <div class="grid">
+              <div>
+                <h1>{{page.title}}</h1>
+              </div>
+              <div class="right">
+                <p>{{page.publish}}</p>
+              </div>
+            </div>
+            {{#page.author}}
+            <div class="grid">
+              <div>
+                <p>articol scris de <i>{{.}}</i></p>
+              </div>
+            </div>
+              {{/page.author}}
+          </hgroup>
+        </header>
+        {{{page.content}}}
+
+        {{#page.renderChangelog}}
+        <aside>
+
+          <p>
+          <h5>Istoric modificări</h5>
+          <ul>
+            {{#page.changelog}}
+              <li>{{.}}</li>
+            {{/page.changelog}}
+          </ul>
+          </p>
+
+        </aside>
+        {{/page.renderChangelog}}
+
+        <footer>{{page.footer}}</footer>
+      </article>
+    </main>
+
+{{>site/template/footer.html}}
