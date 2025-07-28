@@ -9,8 +9,30 @@ author: evie
 
 **Group meowing** este o comunitate de persoane trans feminine și nonbinare cu o ideologie politică de stânga.
 
-Suntem o comunitate privată de discord, unde oferim un spațiu sigur pentru persoanele transfem și nonbinare din România, și vrem să ne implicăm și mai activ în a sprijini comunitatea trans din România. Dacă dorești să te alături comunității noastre, te rog să citești [regulamentul](/page/regulament.html) apoi să ne contactezi (vezi detalii mai jos).
+Suntem o comunitate privată de Discord, dedicată persoanelor transfemme și nonbinare din
+România. Ne dorim să oferim un spațiu sigur, unde membrii pot discuta liber și se pot
+susține reciproc.
 
-Unul din felurile în care dorim să facem asta este prin acest website, unde dorim să publicăm diverse articole de interes general pentru comunitatea noastră.
+Dacă vrei să te alături, te rugăm să citești [regulamentul](/page/regulament.html) și să
+ne contactezi (vezi detalii mai jos).
 
-Dacă ești o persoană transfemme sau nonbinară și vrei să vorbești cu noi, să ne pui întrebări sau să te alături comunității noastre, te rog să ne scrii pe email la `contact <a-rond> group <liniuță> meowing <punct> ro`, pe instagram, la [@groupmeowing](https://www.instagram.com/groupmeowing/) sau pe mastodon/fediverse la [@groupmeowing@tech.lgbt](https://tech.lgbt/@groupmeowing).
+Pe lângă serverul nostru, încercăm să sprijinim și alte persoane din comunitatea trans
+prin acest website, unde publicăm articole utile și rămânem deschise interacțiunii cu voi.
+
+Oferim sprijin persoanelor transfemme și nonbinare, fie pe discord fie prin email/mesaje
+pe instagram sau fedi pentru:
+
+- informații generale legate de tranziție,
+- ajutor/sfaturi în coming out-ul față de familie, prieteni, etc.,
+- contacte medici sau specialiști trans-friendly,
+- informații legate de tratamentul hormonal,
+- informații despre tranziția legală (schimbatul actelor).
+
+Dacă ești o persoană transfemme sau nonbinară și vrei să vorbești cu noi, să ne pui
+întrebări sau să te alături comunității noastre, te rog să ne scrii pe email la
+`contact <a-rond> group <liniuță> meowing <punct> ro`, pe instagram, la
+[@groupmeowing](https://www.instagram.com/groupmeowing/) sau pe mastodon/fediverse la
+[@groupmeowing@tech.lgbt](https://tech.lgbt/@groupmeowing).
+
+Comunitatea noastră este în totalitate condusă de voluntare/x. Facem tot posibilul să
+răspundem cât mai repede/corect.
