@@ -1,0 +1,7 @@
+packages: group-meowing.cabal
+
+source-repository-package
+  type: git
+  location: https://github.com/eviefp/website-engine
+  tag: e49874d79c5ea4a4403eab431eb7d3b53aee1b26
+

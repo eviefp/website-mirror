@@ -10,15 +10,16 @@
         "treefmt-nix": "treefmt-nix"
       },
       "locked": {
-        "lastModified": 1753624838,
-        "narHash": "sha256-K+mMh3I6EjV73TmhLtbODAjeHMXRthTf5TX63Vk0ogw=",
+        "lastModified": 1754074707,
+        "narHash": "sha256-sOcZzVkMkcLHGz4vMP/8zq3r/fn9tkQUAREwjOtVr8M=",
         "owner": "eviefp",
         "repo": "website-engine",
-        "rev": "4a178e37b0f5d351a0a215b22c54b2c16454d41a",
+        "rev": "e49874d79c5ea4a4403eab431eb7d3b53aee1b26",
         "type": "github"
       },
       "original": {
         "owner": "eviefp",
+        "ref": "evie/rules-engine",
         "repo": "website-engine",
         "type": "github"
       }
@@ -61,16 +62,16 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1752950548,
-        "narHash": "sha256-NS6BLD0lxOrnCiEOcvQCDVPXafX1/ek1dfJHX1nUIzc=",
+        "lastModified": 1754028485,
+        "narHash": "sha256-IiiXB3BDTi6UqzAZcf2S797hWEPCRZOwyNThJIYhUfk=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "c87b95e25065c028d31a94f06a62927d18763fdf",
+        "rev": "59e69648d345d6e8fef86158c555730fa12af9de",
         "type": "github"
       },
       "original": {
         "owner": "nixos",
-        "ref": "nixos-unstable",
+        "ref": "nixos-25.05-small",
         "repo": "nixpkgs",
         "type": "github"
       }
