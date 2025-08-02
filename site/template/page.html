@@ -12,13 +12,18 @@
                 <p>{{page.publish}}</p>
               </div>
             </div>
-            {{#page.author}}
             <div class="grid">
               <div>
+                {{#page.tags}}
+                <a href="/tag/{{.}}" class="secondary">{{.}}</a>&nbsp;
+                {{/page.tags}}
+              </div>
+              {{#page.author}}
+              <div class="right">
                 <p>articol scris de <i>{{.}}</i></p>
               </div>
-            </div>
               {{/page.author}}
+            </div>
           </hgroup>
         </header>
         {{{page.content}}}

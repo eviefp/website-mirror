@@ -3,6 +3,7 @@ id: group-meowing
 publish: 21-07-2025
 title: Group Meowing
 author: evie
+tags: [regulament, group-meowing]
 ---
 
 ![[content/group-meowing.jpg]] **Group meowing** este o comunitate de persoane trans feminine și nonbinare cu o ideologie politică de stânga.

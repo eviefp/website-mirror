@@ -3,6 +3,7 @@ id: hrt-plan-ideal-de-tratament
 publish: 28-07-2025
 title: Plan de tratament hormonal de substituție pentru feminizare
 author: Dr Emilia
+tags: [tranziție, medical]
 ---
 
 Tratamentul hormonal **nu** este strict necesar tranziției. Este doar pentru persoanele

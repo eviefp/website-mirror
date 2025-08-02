@@ -37,10 +37,6 @@ make = do
   --   - changelog (list of strings)
   --   - renderChangelog (boolean)
   --
-  -- TODO: update the templates for posts/pages/wikis to render tags along with links to them
-  --
-  -- TODO: `renderChangelog` should default to `true` if `changelog` is present,
-  --       and I think that may be broken
   itemsCache <- initItemsCache
 
   -- "PHONY"-style rule to clean everything
@@ -136,7 +132,6 @@ make = do
       wikis = filter ((tagName `elem`) . tags . fst) allWikis
 
     -- generate the tag file and pass a list for each of posts, pages, and wikis
-    -- TODO: we don't currently have a tag template but we have a `wiki-tag` template, so start there
     writeFile (RelativePath "template/tag.html") path
       . addKey "posts" (Aeson.toJSON $ fmap snd posts)
       . addKey "pages" (Aeson.toJSON $ fmap snd pages)

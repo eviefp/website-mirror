@@ -1,5 +1,5 @@
 TODOs for this PR:
-- [ ] TODOs in `Main.hs`
+- [x] TODOs in `Main.hs`
 - [ ] remove the cabal.project file and use nix instead to bring in `website-engine`
 - [ ] add nix commands for `cabal build`/`cabal run`
 - [ ] update this document (remove this TODO section, update the example below)
