@@ -4,8 +4,9 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05-small";
     flake-utils.url = "github:numtide/flake-utils";
-    evie-blog-engine = {
+    website-engine-source = {
       url = "github:eviefp/website-engine?ref=evie/rules-engine";
+      flake = false; # TODO: figure out how to export a cabal package from the flake
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
@@ -18,12 +19,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, treefmt-nix, evie-blog-engine, pico-css }:
+  outputs = { self, nixpkgs, flake-utils, treefmt-nix, website-engine-source, pico-css }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let
           pkgs = import nixpkgs {
             inherit system;
+          };
+          haskellPackages = pkgs.haskell.packages.ghc984.override {
+            overrides = final: prev: {
+              website-engine = prev.callCabal2nix "website-engine" website-engine-source { };
+              group-meowing = prev.callCabal2nix "group-meowing" ./. { };
+            };
           };
           treefmt-config = {
             projectRootFile = "flake.nix";
@@ -48,19 +55,18 @@
             '';
           };
 
-          packages.default = pkgs.haskell.packages.ghc984.callCabal2nix "group-meowing" ./. { };
+          packages.default = haskellPackages.callCabal2nix "group-meowing" ./. { };
 
-          devShells.default = pkgs.mkShell {
-            name = "group-meowing-website-shell";
+          devShells.default = haskellPackages.shellFor {
+            packages = p: [ p.group-meowing ];
             buildInputs = [
-              evie-blog-engine.packages.x86_64-linux.default
               pkgs.http-server
 
               pkgs.zlib.dev
               pkgs.haskell.compiler.ghc984
-              pkgs.haskell.packages.ghc984.cabal-install
-              pkgs.haskell.packages.ghc984.cabal2nix
-              pkgs.haskell.packages.ghc984.haskell-language-server
+              haskellPackages.cabal-install
+              haskellPackages.cabal2nix
+              haskellPackages.haskell-language-server
             ];
             shellHook = ''
               ln -sf ${pico-css}/css/pico.min.css site/css/pico.min.css
