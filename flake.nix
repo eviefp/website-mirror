@@ -26,6 +26,14 @@
           pkgs = import nixpkgs {
             inherit system;
           };
+
+          mkCommand = runtimeInputs: text: {
+            type = "app";
+            program = pkgs.lib.getExe (pkgs.writeShellApplication {
+              name = "command";
+              inherit runtimeInputs text;
+            });
+          };
           haskellPackages = pkgs.haskell.packages.ghc984.override {
             overrides = final: prev: {
               website-engine = prev.callCabal2nix "website-engine" website-engine-source { };
@@ -44,6 +52,21 @@
           treefmt = (treefmt-nix.lib.evalModule pkgs treefmt-config).config.build;
         in
         {
+          apps = {
+            build = (mkCommand [ ] ''
+              cabal build group-meowing
+            '');
+            generate = (mkCommand [ ] ''
+              cabal run group-meowing --
+            '');
+            clean = (mkCommand [ ] ''
+              cabal run group-meowing -- clean
+            '');
+            help = (mkCommand [ ] ''
+              cabal run group-meowing -- --help
+            '');
+          };
+
           formatter = treefmt.wrapper;
 
           checks = {

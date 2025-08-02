@@ -1,16 +1,16 @@
-TODOs for this PR:
-- [x] TODOs in `Main.hs`
-- [x] remove the cabal.project file and use nix instead to bring in `website-engine`
-- [ ] add nix commands for `cabal build`/`cabal run`
-- [ ] update this document (remove this TODO section, update the example below)
-
 # Generating/testing locally
 
 ```sh
 nix develop # enter the shell with the static generator
-website-engine # run the static gen name
+nix run .#generate # run the static generation
 # ^ repeat as needed when changing the static files
 http-server docs # start a http server to view changes
+
+# other useful commands
+nix run .#clean # cleans 'docs/', do it whenever removing/renaming anything
+nix run .#help # see the shake options available
+# if you want to use them manually, you'll have to run
+cabal run group-meowing -- --option-here
 ```
 
 ## Deploying
