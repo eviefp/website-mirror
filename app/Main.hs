@@ -11,12 +11,9 @@ import Blog.Settings (Settings (Settings))
 import qualified Blog.Settings as Settings
 
 -- other libraries
-import Control.Monad.Reader (ReaderT)
-import qualified Control.Monad.Reader as Reader
 import qualified Data.Aeson as Aeson
 import qualified Data.Text as T
 import qualified Development.Shake as Shake
-import Development.Shake.FilePath ((-<.>))
 
 make :: ReaderT Settings Shake.Rules ()
 make = do
@@ -156,7 +153,7 @@ main = do
       -- automagically inside the `make` function without explicitly doing so :)
       -- `ReaderT` is essentially the "I have some context" monad
       -- and the context is `settings`
-      Reader.runReaderT make settings
+      runReaderT make settings
  where
   mkShakeOpts :: Settings -> Shake.ShakeOptions
   mkShakeOpts opts =

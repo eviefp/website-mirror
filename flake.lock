@@ -98,11 +98,11 @@
     "website-engine-source": {
       "flake": false,
       "locked": {
-        "lastModified": 1754131115,
-        "narHash": "sha256-ee4HgXxOnNPbm42rD7bsMlprp0GYJ4hlI+gPCnRdRB8=",
+        "lastModified": 1754142796,
+        "narHash": "sha256-Dx5Yst0lAHv1krF1Oqw4k6t3qxuQkVJaUgpMRe33hug=",
         "owner": "eviefp",
         "repo": "website-engine",
-        "rev": "c7d699c244104c723fe4b0878e2097eeea18ef8a",
+        "rev": "3b30bb70ffaaa33986d8a69e382d204598ebaed6",
         "type": "github"
       },
       "original": {
