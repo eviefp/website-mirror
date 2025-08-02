@@ -32,7 +32,15 @@ make = do
   --   - id (is used as the file name/path)
   --   - title
   --   - publish (dd-mm-yyyy date format, dates in the future means don't publish)
+  -- optional fields:
   --   - tags (list of strings)
+  --   - changelog (list of strings)
+  --   - renderChangelog (boolean)
+  --
+  -- TODO: update the templates for posts/pages/wikis to render tags along with links to them
+  --
+  -- TODO: `renderChangelog` should default to `true` if `changelog` is present,
+  --       and I think that may be broken
   itemsCache <- initItemsCache
 
   -- "PHONY"-style rule to clean everything
@@ -99,13 +107,14 @@ make = do
       >>= generatePage "post" path (RelativePath "template/post.html")
   "post/content//*" %> \path -> copyFile path path
 
-  -- pages, see posts for details
+  -- pages are identical to posts, see posts for details
   "page//*.html" %> \path -> do
     need' ["page/content//*"]
     itemsCache ["page//*.md"] >>= generatePage "page" path (RelativePath "template/page.html")
   "page/content//*" %> \path -> copyFile path path
 
-  -- wiki, see posts for details
+  -- wiki pages are identical to posts, see posts for details
+  -- we currently don't have any, so this does nothing
   "wiki//*.html" %> \path -> do
     need' ["wiki/content//*"]
     itemsCache ["wiki//*.md"] >>= generatePage "wiki" path (RelativePath "template/wiki.html")
@@ -127,6 +136,7 @@ make = do
       wikis = filter ((tagName `elem`) . tags . fst) allWikis
 
     -- generate the tag file and pass a list for each of posts, pages, and wikis
+    -- TODO: we don't currently have a tag template but we have a `wiki-tag` template, so start there
     writeFile (RelativePath "template/tag.html") path
       . addKey "posts" (Aeson.toJSON $ fmap snd posts)
       . addKey "pages" (Aeson.toJSON $ fmap snd pages)
