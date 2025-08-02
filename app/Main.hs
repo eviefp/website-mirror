@@ -7,7 +7,6 @@ import Blog.Prelude
 import Blog.Engine
 
 -- engine related imports
-import qualified Blog.Config as Config
 import Blog.Settings (Settings (Settings))
 import qualified Blog.Settings as Settings
 
@@ -67,7 +66,7 @@ make = do
     -- write the file using the provided template, replacing it
     -- with the json data from the 'posts'
     writeFile (RelativePath "template/index.html") path
-      . Config.withMetadataObject "posts"
+      . withMetadataObject "posts"
       . Aeson.toJSON
       $ sortedPosts
 
@@ -129,10 +128,10 @@ make = do
 
     -- generate the tag file and pass a list for each of posts, pages, and wikis
     writeFile (RelativePath "template/tag.html") path
-      . Config.addKey "posts" (Aeson.toJSON $ fmap snd posts)
-      . Config.addKey "pages" (Aeson.toJSON $ fmap snd pages)
-      . Config.addKey "wikis" (Aeson.toJSON $ fmap snd wikis)
-      . Config.withMetadataObject "tagName"
+      . addKey "posts" (Aeson.toJSON $ fmap snd posts)
+      . addKey "pages" (Aeson.toJSON $ fmap snd pages)
+      . addKey "wikis" (Aeson.toJSON $ fmap snd wikis)
+      . withMetadataObject "tagName"
       . Aeson.toJSON
       $ tagName
 
@@ -141,7 +140,7 @@ main :: IO ()
 main = do
   let
     -- define output and source as 'docs' and 'site'
-    settings = Settings {Settings.output = "docs", Settings.source = "site", modules = []}
+    settings = Settings {Settings.output = "docs", Settings.source = "site"}
     -- use the settings below
     shakeOpts = mkShakeOpts settings
    in
