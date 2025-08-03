@@ -3,6 +3,7 @@ id: hrt-plan-ideal-de-tratament
 publish: 28-07-2025
 title: Plan de tratament hormonal de substituție pentru feminizare
 author: Dr Emilia
+tags: [tranziție, medical]
 ---
 
 Tratamentul hormonal **nu** este strict necesar tranziției. Este doar pentru persoanele
@@ -15,7 +16,7 @@ Acestea fiind spuse, în România accesul la tratamentul hormonal este anevoios,
 femei trans și persoane nonbinare aleg să obtină singure tratamentul hormonal.
 
 Pentru informații generale, puteți citi și articolul despre
-[tranziția medicală](/post/tranzitia-medicala).
+[[/post/tranzitia-medicala]].
 
 ## Accesul la tratamentul hormonal de feminizare pe calea oficială
 

@@ -5,6 +5,7 @@ title: Regulament Group Meowing
 changelog:
   - 30/06/2025, vârsta minimă schimbată de la 18 la 16 ani, adăugate reguli legate de asta
   - 06/09/2024, varianta inițială a regulametului, pornind de la regulamentul grupului 999-notifications
+tags: [regulament, group-meowing]
 ---
 
 Group Meowing este un grup de sprijin și discuții adresat în principal femeilor transgen

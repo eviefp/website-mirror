@@ -3,6 +3,7 @@ id: tranzitia-medicala
 publish: 24-07-2025
 title: Tranzitia Medicala
 author: evie
+tags: [tranziție, medical]
 ---
 
 Acest articol este un articol informativ despre tranziția medicală pentru persoanele

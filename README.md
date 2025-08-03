@@ -2,9 +2,17 @@
 
 ```sh
 nix develop # enter the shell with the static generator
-website-engine # run the static gen name
+nix run .#generate # run the static generation
 # ^ repeat as needed when changing the static files
 http-server docs # start a http server to view changes
+
+# other useful commands
+nix run .#clean # cleans 'docs/', do it whenever removing/renaming anything
+nix run .#help # see the shake options available
+# if you want to use them manually, you'll have to run
+cabal run group-meowing -- --option-here
+
+nix run .#repl # starts ghci/the repl
 ```
 
 ## Deploying
