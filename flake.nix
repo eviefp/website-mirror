@@ -5,7 +5,7 @@
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05-small";
     flake-utils.url = "github:numtide/flake-utils";
     website-engine-source = {
-      url = "github:eviefp/website-engine?ref=main";
+      url = "github:eviefp/website-engine?ref=evie/wikilinks-rebase";
       flake = false; # TODO: figure out how to export a cabal package from the flake
       inputs.nixpkgs.follows = "nixpkgs";
     };

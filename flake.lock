@@ -98,16 +98,16 @@
     "website-engine-source": {
       "flake": false,
       "locked": {
-        "lastModified": 1754230076,
-        "narHash": "sha256-QdN+9baCNpB3RrYK/cYRZJgYyuqYT51HYyNey4N35Ys=",
+        "lastModified": 1754269836,
+        "narHash": "sha256-p2ZrxdAJHALPCVx4bOKGJvhx7fEr5UDe1+QEgemCxgc=",
         "owner": "eviefp",
         "repo": "website-engine",
-        "rev": "55605a13321e9076e9bcefbecf9543552ffa11d3",
+        "rev": "24dd8548b502c45249b60f6bcdd4a34859497121",
         "type": "github"
       },
       "original": {
         "owner": "eviefp",
-        "ref": "main",
+        "ref": "evie/wikilinks-rebase",
         "repo": "website-engine",
         "type": "github"
       }
