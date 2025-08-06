@@ -2,30 +2,29 @@
 {{>site/template/header.html}}
 
     <main>
-      <article>
-        <header>
-          <hgroup>
-            <h1>pagini cu tag-ul {{tagName}}</h1>
-            <ul>
-              {{#posts}}
-                <li>
-                  <a href="/post/{{id}}" class="secondary">{{title}}</a>
-                </li>
-              {{/posts}}
-              {{#pages}}
-                <li>
-                  <a href="/page/{{id}}" class="secondary">{{title}}</a>
-                </li>
-              {{/pages}}
-              {{#wikis}}
-                <li>
-                  <a href="/wiki/{{id}}" class="secondary">{{title}}</a>
-                </li>
-              {{/wikis}}
-            </ul>
-          </hgroup>
-        </header>
-      </article>
+      <h1>pagini cu tag-ul {{tagName}}</h1>
+      <section class="striped">
+      <table class="striped">
+      {{#posts}}
+        <tr>
+          <td><a class="unlink" href="/post/{{id}}">{{title}}</a></td>
+          <td class="right">{{publish}}</td>
+        </tr>
+      {{/posts}}
+      {{#pages}}
+        <tr>
+          <td><a class="unlink" href="/page/{{id}}">{{title}}</a></td>
+          <td class="right">{{publish}}</td>
+        </tr>
+      {{/pages}}
+      {{#wikis}}
+        <tr>
+          <td><a class="unlink" href="/wiki/{{id}}">{{title}}</a></td>
+          <td class="right">{{publish}}</td>
+        </tr>
+      {{/wikis}}
+      </table>
+      </section>
     </main>
 
 {{>site/template/footer.html}}
