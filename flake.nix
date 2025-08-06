@@ -2,11 +2,10 @@
   description = "Group Meowing website";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-25.05-small";
+    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    website-engine-source = {
-      url = "github:eviefp/website-engine?ref=main";
-      flake = false; # TODO: figure out how to export a cabal package from the flake
+    website-engine = {
+      url = "github:eviefp/website-engine";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt-nix = {
@@ -19,14 +18,30 @@
     };
   };
 
-  outputs = { self, nixpkgs, flake-utils, treefmt-nix, website-engine-source, pico-css }:
+  outputs = { self, nixpkgs, flake-utils, treefmt-nix, website-engine, pico-css }:
     flake-utils.lib.eachDefaultSystem
       (system:
         let
+          # use this for tooling, higher chances of nixos cache hits
           pkgs = import nixpkgs {
             inherit system;
           };
 
+          # use this for haskellPackages
+          pkgs-pandoc-upgrade = import nixpkgs {
+            inherit system;
+            overlays = [ website-engine.overlays.default ];
+          };
+
+          # add our current package to the list;
+          haskellPackages = pkgs-pandoc-upgrade.haskell.packages.ghc9102.override (prevArgs: {
+            # warning: we need to `composeExtensions` because we also have the overlay that overrides this bit
+            overrides = pkgs-pandoc-upgrade.lib.composeExtensions (prevArgs.overrides or (_: _: { })) (final: prev: {
+              group-meowing = final.callCabal2nix "group-meowing" ./. { };
+            });
+          });
+
+          # helper to create nix apps
           mkCommand = runtimeInputs: text: {
             type = "app";
             program = pkgs.lib.getExe (pkgs.writeShellApplication {
@@ -34,24 +49,23 @@
               inherit runtimeInputs text;
             });
           };
-          haskellPackages = pkgs.haskell.packages.ghc984.override {
-            overrides = final: prev: {
-              website-engine = prev.callCabal2nix "website-engine" website-engine-source { };
-              group-meowing = prev.callCabal2nix "group-meowing" ./. { };
-            };
-          };
+
+          group-meowing = haskellPackages.callCabal2nix "group-meowing" ./. { };
+
+          # formatter config
           treefmt-config = {
             projectRootFile = "flake.nix";
             programs = {
               nixpkgs-fmt.enable = true;
               cabal-fmt.enable = true;
               fourmolu.enable = true;
-              fourmolu.package = pkgs.haskell.packages.ghc984.fourmolu;
+              fourmolu.package = pkgs.haskell.packages.ghc9102.fourmolu;
             };
           };
           treefmt = (treefmt-nix.lib.evalModule pkgs treefmt-config).config.build;
         in
         {
+          # run via `nix run .#build` / `nix run .#generate`
           apps = {
             build = (mkCommand [ ] ''
               cabal build group-meowing
@@ -82,35 +96,49 @@
             '');
           };
 
+          # run with `nix fmt`
           formatter = treefmt.wrapper;
 
+          # run with `nix flake check`
           checks = {
+            # run the formatter in check mode (errors instead of fixing)
             fmt = treefmt.check self;
+
+            # haskell lints
             hlint = pkgs.runCommand "hlint" { buildInputs = [ pkgs.hlint ]; } ''
               cd ${./.}
-              hlint src spec app
+              hlint app
+              touch $out
+            '';
+
+            # by building the project, nix also runs the tests automatically
+            hstests = pkgs.runCommand "hstests" { buildInputs = [ group-meowing ]; } ''
               touch $out
             '';
           };
 
-          packages.default = haskellPackages.callCabal2nix "group-meowing" ./. { };
+          # run with `nix run .#default`
+          packages.default = group-meowing;
 
+          # run with `nix develop`
           devShells.default = haskellPackages.shellFor {
             packages = p: [ p.group-meowing ];
-            withHoogle = true;
+            # This is a bit slow.
+            withHoogle = false;
             buildInputs = [
-              pkgs.http-server
+              pkgs.haskell.compiler.ghc9102
 
+              pkgs.haskell.packages.ghc9102.cabal-install
+              pkgs.haskell.packages.ghc9102.haskell-language-server
+
+              pkgs.http-server
               pkgs.zlib.dev
-              pkgs.haskell.compiler.ghc984
-              haskellPackages.cabal-install
-              haskellPackages.cabal2nix
-              haskellPackages.haskell-language-server
             ];
             shellHook = ''
-              ln -sf ${pico-css}/css/pico.min.css site/css/pico.min.css
+              ln - sf ${pico-css}/css/pico.min.css site/css/pico.min.css
             '';
           };
         }
       );
 }
+

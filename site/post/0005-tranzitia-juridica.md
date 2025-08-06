@@ -46,7 +46,7 @@ poate fi început oriunde în țară, judecându-se unde este domiciliul, dar es
 în afara orașelor mari.
 
 **În cazul în care apare o situație ce nu este acoperită de ghid**
-**recomand apelarea la un expert. [Contactați-ne](/post/group-meowing)**
+**recomand apelarea la un expert. [[/post/group-meowing|Contactați-ne]]**
 **pentru recomandări.**
 
 ## Introducere
@@ -284,7 +284,7 @@ Aici puteți găsi modele pentru documentele menționate în articol. Documentel
 - pe Office Live.
 
 Dacă întâmpinați dificultăți în a folosi variantele de mai sus, vă rugăm să ne
-[contactați](/post/group-meowing).
+[[/post/group-meowing|contactați]].
 
 ### Model chemare în judecată
 

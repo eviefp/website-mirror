@@ -56,8 +56,7 @@ Operațiile de afirmare a genului care feminizează sunt:
 - vaginoplastie,
 - operații estetice faciale.
 
-Pentru mai multe informații despre tratamentul hormonal, citiți
-[planul de tratament hormonal de substituție pentru feminizare](/post/hrt-plan-ideal-de-tratament).
+Pentru mai multe informații despre tratamentul hormonal, citiți [[hrt-plan-ideal-de-tratament]].
 
 ## Tratamentul hormonal de tip DIY
 

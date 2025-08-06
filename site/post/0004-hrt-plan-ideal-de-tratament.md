@@ -16,7 +16,7 @@ Acestea fiind spuse, în România accesul la tratamentul hormonal este anevoios,
 femei trans și persoane nonbinare aleg să obtină singure tratamentul hormonal.
 
 Pentru informații generale, puteți citi și articolul despre
-[[/post/tranzitia-medicala]].
+[[tranzitia-medicala]].
 
 ## Accesul la tratamentul hormonal de feminizare pe calea oficială
 
