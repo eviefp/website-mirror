@@ -2,7 +2,7 @@
 id: group-meowing
 publish: 21-07-2025
 title: Group Meowing
-author: evie
+author: '[evie](https://linktr.ee/evie__ro)'
 tags: [regulament, group-meowing]
 ---
 

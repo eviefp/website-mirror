@@ -2,7 +2,7 @@
 id: tranzitia-sociala
 publish: 22-07-2025
 title: Tranzitia Sociala
-author: evie
+author: '[evie](https://linktr.ee/evie__ro)'
 tags: [tranziție]
 ---
 

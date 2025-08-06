@@ -2,7 +2,7 @@
 id: tranzitia-medicala
 publish: 24-07-2025
 title: Tranzitia Medicala
-author: evie
+author: '[evie](https://linktr.ee/evie__ro)'
 tags: [tranziție, medical]
 ---
 
