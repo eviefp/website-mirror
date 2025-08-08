@@ -8,22 +8,22 @@ import Blog.Engine
 
 -- engine related imports
 import Blog.Item
+import qualified Blog.Path.Rel as RelPath
 import Blog.Settings (Settings (Settings))
 import qualified Blog.Settings as Settings
+import Blog.Types (Rules)
 
 -- other libraries
-import qualified Data.Aeson as Aeson
-import qualified Data.Text as T
 import qualified Development.Shake as Shake
 
-make :: ReaderT Settings Shake.Rules ()
+make :: Rules ()
 make = do
   -- point of entry: we want to generate the 'index.html' file
   -- the 'index.html' rule will 'need' the rest of the website
-  want [RelativePath "index.html"]
+  want [[RelPath.outputFile|index.html|]]
 
   -- CNAME is needed for github pages
-  want [RelativePath "CNAME"]
+  want [[RelPath.outputFile|CNAME|]]
 
   let
     post = ("post", ["post//*.md"])
@@ -62,24 +62,23 @@ make = do
     wikis <- itemsCache wiki
 
     -- trigger the rules for posts, pages, and wiki pages
-    need . fmap (RelativePath . ("post" </>) . (-<.> "html") . T.unpack . id) . snd $ posts
-    need . fmap (RelativePath . ("page" </>) . (-<.> "html") . T.unpack . id) . snd $ pages
-    need . fmap (RelativePath . ("wiki" </>) . (-<.> "html") . T.unpack . id) . snd $ wikis
+    needItems posts
+    needItems pages
+    needItems wikis
 
     -- sort the posts by publish date
     let
-      sortedPosts = sortOn (Down . publish) . snd $ posts
+      sortedPosts = sortBy (Down . publish) posts
     -- write the file using the provided template, replacing it
     -- with the json data from the 'posts'
-    writeFile (RelativePath "template/index.html") path
+    writeFile [RelPath.sourceFile|template/index.html|] path
       . withMetadataObject "posts"
-      . Aeson.toJSON
       . fmap metadata
       $ sortedPosts
 
   -- static content, just copy files
-  "css//*" %> \path -> copyFile path path
-  "images//*" %> \path -> copyFile path path
+  "css//*" %> \path -> copyFile (RelPath.asSource path) path
+  "images//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- posts
   "post//*.html" %> \path -> do
@@ -113,8 +112,8 @@ make = do
       --     and as the key in the dictionary;
       --   - path is a destination `RelativePath "post/foo.html"`
       --   - last argument is a `RelativePath` to the source template
-      >>= generatePage "post" path (RelativePath "template/post.html")
-  "post/content//*" %> \path -> copyFile path path
+      >>= generatePage "post" path [RelPath.sourceFile|template/post.html|]
+  "post/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- pages are identical to posts, see posts for details
   "page//*.html" %> \path -> do
@@ -124,8 +123,8 @@ make = do
       , itemsCache page
       , itemsCache wiki
       ]
-      >>= generatePage "page" path (RelativePath "template/page.html")
-  "page/content//*" %> \path -> copyFile path path
+      >>= generatePage "page" path [RelPath.sourceFile|template/page.html|]
+  "page/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- wiki pages are identical to posts, see posts for details
   -- we currently don't have any, so this does nothing
@@ -136,8 +135,8 @@ make = do
       , itemsCache page
       , itemsCache wiki
       ]
-      >>= generatePage "wiki" path (RelativePath "template/wiki.html")
-  "wiki/content//*" %> \path -> copyFile path path
+      >>= generatePage "wiki" path [RelPath.sourceFile|template/wiki.html|]
+  "wiki/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- tags, will generate `tag/name.html` for tags referenced by posts, pages, or wiki pages
   "tag/*.html" %> \path -> do
@@ -147,48 +146,43 @@ make = do
     allWikis <- itemsCache wiki
 
     let
-      -- path is `RelativePath "tag/some-tag.html"`, tagName will be just `some-tag`
-      tagName = T.pack . takeBaseName $ path
+      -- path is `Path OutputRel File "tag/some-tag.html"`, tagName will be just `some-tag`
+      tagName = tagNameFromPath path
       -- find all posts, pages, wikis that contain `some-tag`
-      posts = filter ((tagName `elem`) . tags) . snd $ allPosts
-      pages = filter ((tagName `elem`) . tags) . snd $ allPages
-      wikis = filter ((tagName `elem`) . tags) . snd $ allWikis
+      posts = filterByTags (tagName `elem`) allPosts
+      pages = filterByTags (tagName `elem`) allPages
+      wikis = filterByTags (tagName `elem`) allWikis
 
     -- generate the tag file and pass a list for each of posts, pages, and wikis
-    writeFile (RelativePath "template/tag.html") path
-      . addKey "posts" (Aeson.toJSON $ fmap metadata posts)
-      . addKey "pages" (Aeson.toJSON $ fmap metadata pages)
-      . addKey "wikis" (Aeson.toJSON $ fmap metadata wikis)
+    writeFile [RelPath.sourceFile|template/tag.html|] path
+      . addKey "posts" (fmap metadata posts)
+      . addKey "pages" (fmap metadata pages)
+      . addKey "wikis" (fmap metadata wikis)
       . withMetadataObject "tagName"
-      . Aeson.toJSON
+      . getTagName
       $ tagName
 
-  "CNAME" %> \path -> copyFile path path
+  "CNAME" %> \path -> copyFile (RelPath.asSource path) path
 
 -- this is the entry point for the program
 main :: IO ()
 main = do
   let
     -- define output and source as 'docs' and 'site'
-    settings = Settings {Settings.output = "docs", Settings.source = "site"}
+    settings = Settings {Settings.output = [reldir|docs|], Settings.source = [reldir|site|]}
     -- use the settings below
     shakeOpts = mkShakeOpts settings
    in
     -- Shake is kind of like F#'s FAKE, but ya know, better :p
     -- basically a DSL for build systems, which website-engine is built on top of
-    Shake.shakeArgs shakeOpts do
-      -- this is basically just some monadic magic that allows passing `settings`
-      -- automagically inside the `make` function without explicitly doing so :)
-      -- `ReaderT` is essentially the "I have some context" monad
-      -- and the context is `settings`
-      runReaderT make settings
+    runEngine shakeOpts settings make
  where
   mkShakeOpts :: Settings -> Shake.ShakeOptions
   mkShakeOpts opts =
     Shake.shakeOptions
       { Shake.shakeLint = Just Shake.LintBasic
       , Shake.shakeTimings = False
-      , Shake.shakeLintInside = [Settings.source opts]
+      , Shake.shakeLintInside = toFilePath <$> [Settings.source opts]
       , Shake.shakeColor = True
       , Shake.shakeVerbosity = Shake.Info
       , Shake.shakeProgress = Shake.progressSimple
