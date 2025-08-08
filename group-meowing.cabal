@@ -70,20 +70,7 @@ executable group-meowing
 
   -- Other library packages from which modules are imported.
   build-depends:
-    , aeson
     , base            ^>=4.20.1.0
-    , bytestring
-    , chronos
-    , exceptions
-    , filepath
-    , lens
-    , lens-aeson
-    , mtl
-    , pandoc
-    , shake
-    , slick
-    , text
-    , vector
     , website-engine
 
   -- Directories containing source files.

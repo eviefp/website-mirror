@@ -4,17 +4,10 @@ module Main where
 import Blog.Prelude
 
 -- This is imported unqualified because pretty much every function is from here
-import Blog.Engine
+import Blog
 
--- engine related imports
-import Blog.Item
+-- This makes it easier to spot path related functions.
 import qualified Blog.Path.Rel as RelPath
-import Blog.Settings (Settings (Settings))
-import qualified Blog.Settings as Settings
-import Blog.Types (Rules)
-
--- other libraries
-import qualified Development.Shake as Shake
 
 make :: Rules ()
 make = do
@@ -113,6 +106,7 @@ make = do
       --   - path is a destination `RelativePath "post/foo.html"`
       --   - last argument is a `RelativePath` to the source template
       >>= generatePage "post" path [RelPath.sourceFile|template/post.html|]
+  -- post-related static content
   "post/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- pages are identical to posts, see posts for details
@@ -168,22 +162,7 @@ make = do
 main :: IO ()
 main = do
   let
-    -- define output and source as 'docs' and 'site'
-    settings = Settings {Settings.output = [reldir|docs|], Settings.source = [reldir|site|]}
-    -- use the settings below
-    shakeOpts = mkShakeOpts settings
+    -- define output and source as 'docs' and 'site', with logging verbosity set to 'Info'
+    settings = Settings [reldir|site|] [reldir|docs|] Info
    in
-    -- Shake is kind of like F#'s FAKE, but ya know, better :p
-    -- basically a DSL for build systems, which website-engine is built on top of
-    runEngine shakeOpts settings make
- where
-  mkShakeOpts :: Settings -> Shake.ShakeOptions
-  mkShakeOpts opts =
-    Shake.shakeOptions
-      { Shake.shakeLint = Just Shake.LintBasic
-      , Shake.shakeTimings = False
-      , Shake.shakeLintInside = toFilePath <$> [Settings.source opts]
-      , Shake.shakeColor = True
-      , Shake.shakeVerbosity = Shake.Info
-      , Shake.shakeProgress = Shake.progressSimple
-      }
+    runEngine settings make
