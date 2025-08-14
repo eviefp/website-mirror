@@ -2,7 +2,6 @@
 id: tranzitia-juridica
 publish: 05-08-2025
 title: Tranziția juridică în România
-author:
 author: '[Elisa Ganea](https://www.instagram.com/elisaz.gn/)'
 tags: [tranziție, juridic]
 ---
