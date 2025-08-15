@@ -6,38 +6,16 @@ author: '[evie](https://linktr.ee/evie__ro)'
 tags: [tranziție]
 ---
 
-Tranziția socială nu are o definiție clară sau rigidă, și poate însemna diverse lucruri pentru fiecare.
+Tranziția socială nu are o definiție clară sau rigidă, și poate însemna diverse lucruri
+pentru fiecare.
 
-Când spunem tranziție socială, ne putem referi la diverse schimbări pe care le putem face când interacționăm cu familia, prietenii, colegii, pe stradă sau chiar online. Spre exemplu:
+Când spunem tranziție socială, ne putem referi la diverse schimbări pe care le putem face
+când interacționăm cu familia, prietenii, colegii, pe stradă sau chiar online. Spre
+exemplu:
 
 - schibmarea numelui și/sau a pronumelor,
 - coming out-ul,
 - adoptarea unui stil nou de îmbrăcăminte, machiaj, accesorii, etc.,
-
-## Cum îmi dau seama dacă sunt trans?
-
-Conceptul de gen este unul foarte complex și determinat foarte mult de societatea în care
-trăim. A fi femeie, bărbat sau persoană nonbinară este diferit în România față de Spania,
-Finlanda sau Singapore. Așteptările sociale și culturale sunt diferite atât la nivel de
-regiune cât și la nivel personal.
-
-A fi trans înseamnă a nu te simți în concordanță cu normele sociale asociate cu genul
-asignat la naștere, și este exclusiv ceva interior persoanei care simte asta. Nu există
-teste sau metode științifice pentru a determina genul sau dacă cineva este sau nu trans.
-
-În general, poate ajuta să aflăm mai multe despre experiența persoanelor trans, despre cum
-și-au dat ele seama că sunt trans, și despre cum se raportează ele la genul lor.
-
-## Importanța modelelor și a vizibilității
-O parte din persoanele trans își dau seama singure, câteodată chiar de la vârste fragede
-că sunt trans. Altele își dau seama mai greu/târziu, și de multe ori cauza este lipsa
-modelelor. Unele persoane simt că ceva nu este în regulă, au perioade depresive/în care
-disociază/etc.
-
-Modelele pozitive sunt esențiale în a ajuta persoanele trans să își dea seama că sunt
-trans, să accepte asta, și să aibe curajul să facă schimbările de care au nevoie pentru
-a își îmbunățăți viața.
-
 
 ## Coming out-ul față de sine
 

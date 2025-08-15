@@ -26,3 +26,12 @@ aside {
 aside li {
   display: list-item;
 }
+
+blockquote {
+  border-left: .25rem solid #de3b97;
+  padding: 0.5rem;
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
