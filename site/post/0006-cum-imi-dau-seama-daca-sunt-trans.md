@@ -1,6 +1,6 @@
 ---
 id: cum-imi-dau-seama-daca-sunt-trans
-publish: 13-08-2025
+publish: 15-08-2025
 title: Cum îmi dau seama dacă sunt trans?
 author: '[evie](https://linktr.ee/evie__ro)'
 tags: [tranziție]
