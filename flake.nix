@@ -71,10 +71,10 @@
               cabal build group-meowing
             '');
             generate = (mkCommand [ ] ''
-              cabal run group-meowing --
+              ${pkgs.lib.getExe (group-meowing)}
             '');
             clean = (mkCommand [ ] ''
-              cabal run group-meowing -- clean
+              ${pkgs.lib.getExe (group-meowing)} clean
             '');
             repl = (mkCommand [ ] ''
               cabal v2-repl group-meowing
@@ -92,7 +92,7 @@
               xdg-open http://localhost:8999
             '');
             help = (mkCommand [ ] ''
-              cabal run group-meowing -- --help
+              ${pkgs.lib.getExe (group-meowing)} --help
             '');
           };
 

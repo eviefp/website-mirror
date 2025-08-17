@@ -70,8 +70,8 @@ executable group-meowing
 
   -- Other library packages from which modules are imported.
   build-depends:
-    , base            ^>=4.20.1.0
     , aeson
+    , base            ^>=4.20.1.0
     , website-engine
 
   -- Directories containing source files.
