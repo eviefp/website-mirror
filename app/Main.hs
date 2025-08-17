@@ -9,6 +9,12 @@ import Blog
 -- This makes it easier to spot path related functions.
 import qualified Blog.Path.Rel as RelPath
 
+-- JSON helper functions
+import qualified Data.Aeson as Aeson
+
+-- a 'KeyMap' is how JSON objects are encoded by Aeson
+import qualified Data.Aeson.KeyMap as KeyMap
+
 make :: Rules ()
 make = do
   -- point of entry: we want to generate the 'index.html' file
@@ -104,8 +110,9 @@ make = do
       --     the object name passed to the mustache template,
       --     and as the key in the dictionary;
       --   - path is a destination `RelativePath "post/foo.html"`
-      --   - last argument is a `RelativePath` to the source template
-      >>= generatePage "post" path [RelPath.sourceFile|template/post.html|]
+      --   - the next argument is the `RelativePath` to the source template
+      --   - the last argument is read as, do not pass additional info to the mustache substitution
+      >>= generatePage "post" path [RelPath.sourceFile|template/post.html|] noExtraKeys
   -- post-related static content
   "post/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
@@ -117,7 +124,7 @@ make = do
       , itemsCache page
       , itemsCache wiki
       ]
-      >>= generatePage "page" path [RelPath.sourceFile|template/page.html|]
+      >>= generatePage "page" path [RelPath.sourceFile|template/page.html|] noExtraKeys
   "page/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- wiki pages are identical to posts, see posts for details
@@ -129,7 +136,7 @@ make = do
       , itemsCache page
       , itemsCache wiki
       ]
-      >>= generatePage "wiki" path [RelPath.sourceFile|template/wiki.html|]
+      >>= generatePage "wiki" path [RelPath.sourceFile|template/wiki.html|] noExtraKeys
   "wiki/content//*" %> \path -> copyFile (RelPath.asSource path) path
 
   -- tags, will generate `tag/name.html` for tags referenced by posts, pages, or wiki pages
@@ -147,8 +154,16 @@ make = do
       pages = filterByTags (tagName `elem`) allPages
       wikis = filterByTags (tagName `elem`) allWikis
 
+    let
+      -- manually add 'relativePath' and 'title' to a 'metadata' object such that
+      -- the header template generates opengraph title and url correctly.
+      extraMetadata =
+        KeyMap.insert "relativePath" (Aeson.toJSON path)
+          . KeyMap.insert "title" (Aeson.toJSON tagName)
+          $ KeyMap.empty
     -- generate the tag file and pass a list for each of posts, pages, and wikis
     writeFile [RelPath.sourceFile|template/tag.html|] path
+      . addKey "metadata" extraMetadata
       . addKey "posts" (fmap metadata posts)
       . addKey "pages" (fmap metadata pages)
       . addKey "wikis" (fmap metadata wikis)

@@ -6,44 +6,44 @@
           <hgroup>
             <div class="grid">
               <div>
-                <h1>{{post.title}}</h1>
+                <h1>{{metadata.title}}</h1>
               </div>
               <div class="right">
-                <p>{{post.publish}}</p>
+                <p>{{metadata.publish}}</p>
               </div>
             </div>
             <div class="grid">
               <div>
-                {{#post.tags}}
+                {{#metadata.tags}}
                 <a href="/tag/{{.}}" class="secondary">{{.}}</a>&nbsp;
-                {{/post.tags}}
+                {{/metadata.tags}}
               </div>
-              {{#post.author}}
+              {{#metadata.author}}
               <div class="right">
                 <p>articol scris de <i>{{.}}</i></p>
               </div>
-              {{/post.author}}
+              {{/metadata.author}}
             </div>
           </hgroup>
         </header>
-        {{{post.content}}}
+        {{{metadata.content}}}
 
-        {{#post.renderChangelog}}
+        {{#metadata.renderChangelog}}
         <aside>
 
           <p>
           <h5>Istoric modificări</h5>
           <ul>
-            {{#post.changelog}}
+            {{#metadata.changelog}}
               <li>{{.}}</li>
-            {{/post.changelog}}
+            {{/metadata.changelog}}
           </ul>
           </p>
 
         </aside>
-        {{/post.renderChangelog}}
+        {{/metadata.renderChangelog}}
 
-        <footer>{{post.footer}}</footer>
+        <footer>{{metadata.footer}}</footer>
       </article>
     </main>
 
