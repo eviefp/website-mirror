@@ -187,11 +187,11 @@ Analize pentru determinarea riscului în timpul tratamentului cu Bicalutamidă:
 - TGP
 - TGO
 
-> Se urmărește ca ambele sa fie in interval normal.
+> Se urmărește ca ambele să fie în interval normal.
 
 [^1]: Dimensiunea maximă a sanilor unei persoane nu poate fi cunoscută, dar studiile spun că ar fi cu o mărime de cupa mai mica decat a mamei sau surorilor.
 [^2]: [Articol despre aplicarea genitală](https://transfemscience.org/articles/genital-e2-application/)
 [^3]: [Simulator nivel E2 injectabil]( https://estrannai.se/)
 [^4]: [Bicalutamida ca anti-androgin](https://transfemscience.org/articles/bica-adoption/)
 [^5]: [Eficacitatea Spirolactonei în HRT](https://transfemscience.org/articles/spiro-testosterone/#spironolactone-androgen-receptor-antagonism-and-clinical-antiandrogenic-effectiveness)
-[^6]: [Articol despre Risculrile CPA](https://transfemscience.org/articles/cpa-meningioma/)
+[^6]: [Articol despre Riscurile CPA](https://transfemscience.org/articles/cpa-meningioma/)
