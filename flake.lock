@@ -178,15 +178,15 @@
       "locked": {
         "lastModified": 1755373772,
         "narHash": "sha256-+Bjl5nF/jldnrvJZ0OS/OsAEELxuSWkAlU3dKOLM4XI=",
-        "owner": "eviefp",
-        "repo": "website-engine",
+        "ref": "refs/heads/main",
         "rev": "870655ad1641d9997cb1d4170b9dcdff7147fc70",
-        "type": "github"
+        "revCount": 27,
+        "type": "git",
+        "url": "https://codeberg.org/eviefp/website-engine.git"
       },
       "original": {
-        "owner": "eviefp",
-        "repo": "website-engine",
-        "type": "github"
+        "type": "git",
+        "url": "https://codeberg.org/eviefp/website-engine.git"
       }
     }
   },
