@@ -45,7 +45,7 @@ Stiu că sună ciudat, că toată lumea vrea să suprime testosteronul din prima
 
 Se pare ca pentru cresterea sanilor un regim imperfect la inceput cu T scazut, dar peste maxim feminin inca si un estradiol inconsistent duce la rezultate mai bune.
 
-Nu se "pierdete" nimic!
+Nu se "pierde" nimic!
 
 Dacă ati fi stat după sistemul medical și nu ați fi început HRT pentru 5-6 luni era rău!
 
