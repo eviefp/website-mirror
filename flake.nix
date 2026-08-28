@@ -41,7 +41,7 @@
         };
 
         # add our current package to the list;
-        haskellPackages = pkgs-pandoc-upgrade.haskell.packages.ghc9102.override (prevArgs: {
+        haskellPackages = pkgs-pandoc-upgrade.haskell.packages.ghc9103.override (prevArgs: {
           # warning: we need to `composeExtensions` because we also have the overlay that overrides this bit
           overrides = pkgs-pandoc-upgrade.lib.composeExtensions (prevArgs.overrides or (_: _: {})) (final: _prev: {
             group-meowing = final.callCabal2nix "group-meowing" ./. {};
@@ -68,7 +68,7 @@
             deadnix.enable = true;
             fourmolu = {
               enable = true;
-              package = pkgs.haskell.packages.ghc9102.fourmolu;
+              package = pkgs.haskell.packages.ghc9103.fourmolu;
             };
             hlint.enable = true;
             jsonfmt.enable = true;
@@ -137,10 +137,10 @@
           # This is a bit slow.
           withHoogle = false;
           buildInputs = [
-            pkgs.haskell.compiler.ghc9102
+            pkgs.haskell.compiler.ghc9103
 
-            pkgs.haskell.packages.ghc9102.cabal-install
-            pkgs.haskell.packages.ghc9102.haskell-language-server
+            pkgs.haskell.packages.ghc9103.cabal-install
+            pkgs.haskell.packages.ghc9103.haskell-language-server
 
             pkgs.http-server
             pkgs.zlib.dev
