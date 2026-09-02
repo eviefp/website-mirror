@@ -2,7 +2,7 @@
 id: tranzitia-juridica
 publish: 05-08-2025
 title: Tranziția juridică în România
-author: '[Elisa Ganea](https://www.instagram.com/elisaz.gn/)'
+author: '[Elisa Ganea](https://www.instagram.com/elisag.zgn/)'
 changelog:
   - 2025-11-06 adăugare capitol "situația juridică din România", multe alte mici reformulări și clarificări
   - 2025-08-19 introducere extinsă, adăugat post-proces, permis conducere, acte studii, problemele procedurii, note subsol
