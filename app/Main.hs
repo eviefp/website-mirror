@@ -23,6 +23,7 @@ make = do
 
   -- CNAME is needed for github pages
   want [[RelPath.outputFile|CNAME|]]
+  want [[RelPath.outputFile|robots.txt|]]
 
   let
     post = ("post", ["post//*.md"])
@@ -172,6 +173,7 @@ make = do
       $ tagName
 
   "CNAME" %> \path -> copyFile (RelPath.asSource path) path
+  "robots.txt" %> \path -> copyFile (RelPath.asSource path) path
 
 -- this is the entry point for the program
 main :: IO ()
